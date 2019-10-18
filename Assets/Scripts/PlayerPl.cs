@@ -4,6 +4,19 @@ using UnityEngine;
 
 public class PlayerPl : MonoBehaviour
 {
-    void move(Vector2 coord) { }
+    public float speed = 2.0f;
+
+    private void Start()
+    {
+    }
+
+    private void Update()
+    {
+    }
+
+    void move(Vector3 coord) 
+    {
+        transform.position += coord * speed * Time.deltaTime;
+    }
 
 }
