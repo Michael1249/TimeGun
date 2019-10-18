@@ -6,9 +6,9 @@ public class PlayerPl : MonoBehaviour
 {
     public float speed = 2.0f;
 
-    void move(Vector3 coord) 
+    void move(Vector2 coord) 
     {
-        transform.position += coord * speed * Time.deltaTime;
+        transform.position += (Vector3)coord * speed * Time.deltaTime;
     }
 
 }
