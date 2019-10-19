@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class TimeGun : MonoBehaviour
 {
-    private float allowedDistance;
     [SerializeField]
-    private bool isIncreasingMode = true;
+    public float allowedDistance;
+    [SerializeField]
+    public bool isIncreasingMode = true;
     [SerializeField]
     public float shotPrice;
+
+
+    private bool isEnable = true;
 
     private GameObject player;
     private Camera camera;
@@ -27,31 +31,36 @@ public class TimeGun : MonoBehaviour
         gameController = GameObject.FindWithTag("game_controller").GetComponent<GameController>();
         camera = Camera.main;
         
-        Debug.Log(gameController);
+        //Debug.Log(gameController);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (!isEnable) return;
+
         if (Input.GetMouseButtonDown(0))
         {
             // get clicked object
-            RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+            Vector3 clickPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            RaycastHit2D hit = Physics2D.Raycast(clickPoint, Vector2.zero);
 
             if (hit.collider != null)
             {
-                // get the nearest object
-                var length = Vector3.Distance(player.transform.position, hit.collider.gameObject.transform.position);
+                // get the nearest object in the way of shot
+                var length = Vector3.Distance(player.transform.position, clickPoint);
 
-                Vector3 direction = hit.collider.gameObject.transform.position - player.transform.position;
+                Vector3 direction = clickPoint - player.transform.position;
                 direction.Normalize();
 
                 RaycastHit2D[] hitFinal = Physics2D.RaycastAll(player.transform.position, direction * length);
 
-                if (hitFinal.Length > 1)
+                if (hitFinal.Length > 1) 
                 {
-                    // checking is nearest object a Movable
-                    drawRay(player, hitFinal[1].collider.gameObject, 3);
+                    // check distance
+                    if (getDistance(hitFinal[1].point, player.transform.position) > allowedDistance) return;
+                    // checking is the nearest object a Movable
+                    drawRay(player.transform.position, hitFinal[1].point, 0.4f);
 
                     Movable movable = hitFinal[1].collider.gameObject.GetComponent<Movable>();
 
@@ -74,18 +83,22 @@ public class TimeGun : MonoBehaviour
         }
     }
 
-    private void drawRay(GameObject o1, GameObject o2, float seconds)
+    private float getDistance(Vector3 v1, Vector3 v2)
     {
-        var length = Vector3.Distance(o1.transform.position, o2.transform.position);
+        v1.z = 0;
+        v2.z = 0;
+        var length = Vector3.Distance(v1, v2);
 
-        Vector3 direction = o2.transform.position - o1.transform.position;
-        direction.Normalize();
-
-        Debug.DrawRay(o1.transform.position, direction * length, Color.green, seconds);
+        return length;
     }
 
-    public void Shot(GameObject gameObject)
+    private void drawRay(Vector3 v1, Vector3 v2, float seconds)
     {
-        //Debug.Log("Shot");
+        var length = Vector3.Distance(v1, v2);
+        
+        Vector3 direction = v2 - v1;
+        direction.Normalize();
+
+        Debug.DrawRay(v1, direction * length, Color.green, seconds);
     }
 }

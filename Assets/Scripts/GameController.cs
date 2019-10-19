@@ -9,27 +9,29 @@ public class GameController : MonoBehaviour
     [SerializeField]
     public float defaultTime;
     private float time;
-    private bool isPrevueMode = false;
+    private bool isPreviewMode = true;
 
     // Start is called before the first frame update
     void Start()
     {
         time = defaultTime;
 
-        startGame();
+        //startGame();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!isPrevueMode) return;
+        
+        if (isPreviewMode) return;
         time -= Time.deltaTime;
 
 
         if (this.time <= 0)
         {
-            this.isPrevueMode = true;
+            stopGame();
             // Method that calls menu gameover. It must call resetScene() afterwards.
+            resetScene();
         }
     }
 
@@ -52,12 +54,12 @@ public class GameController : MonoBehaviour
 
     public void startGame()
     {
-        this.isPrevueMode = true;
+        this.isPreviewMode = false;
     }
 
     public void stopGame()
     {
-        this.isPrevueMode = false;
+        this.isPreviewMode = true;
     }
 
     public float getTime()
