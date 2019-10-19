@@ -41,7 +41,7 @@ public class Spawner : Movable
             spawn_timer -= Time.deltaTime * get_time_scale();
             if (spawn_timer <= 0)
             {
-                spawn_timer = period;
+                spawn_timer += period;
                 spawn();
             }
         }

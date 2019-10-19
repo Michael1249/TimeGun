@@ -28,6 +28,8 @@ public class Guarder : Movable
     {
         base.Start();
         GetComponent<Rigidbody2D>().freezeRotation = true;
+        transform.position = get_current_target().transform.position;
+        next();
     }
 
     // FixedUpdate is called once per frame
@@ -43,7 +45,7 @@ public class Guarder : Movable
         Vector3 delta_pos = that_pos - this_pos;
         Vector3 delta_move = delta_pos.normalized * scale;
 
-        if (delta_pos.magnitude < delta_move.magnitude)
+        if (delta_pos.magnitude < delta_move.magnitude * 1.1)
         {
             next();
         }
