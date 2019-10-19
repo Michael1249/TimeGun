@@ -13,6 +13,7 @@ public class Billet : Movable
     void set_velocity()
     {
         body.velocity = body.velocity.normalized * get_time_scale();
+        //body.velocity -= body.velocity * (float)(body.velocity.magnitude - get_time_scale()) * 0.5f;
     }
 
     // Start is called before the first frame update
@@ -20,6 +21,7 @@ public class Billet : Movable
     {
         base.Start();
         body = GetComponent<Rigidbody2D>();
+        body.freezeRotation = true;
 
         if (body.velocity.magnitude == 0)
         {
@@ -32,10 +34,11 @@ public class Billet : Movable
     void FixedUpdate()
     {
         base.FixedUpdate();
+        set_velocity();
     }
 
     void Update()
     {
-        set_velocity();
+        
     }
 }
