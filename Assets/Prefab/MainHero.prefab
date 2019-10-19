@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7285911656208139520}
   - component: {fileID: 6017107145005193288}
   - component: {fileID: 4450179972768107585}
+  - component: {fileID: -4094555025695069872}
   m_Layer: 0
   m_Name: MainHero
   m_TagString: Player
@@ -111,7 +112,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 0.0001
-  m_LinearDrag: 0
+  m_LinearDrag: 1000
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -119,3 +120,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-4094555025695069872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3837747837718465970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04434160c630bd84cb02900f6d341a02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 50
+  key_board_controll: 1
