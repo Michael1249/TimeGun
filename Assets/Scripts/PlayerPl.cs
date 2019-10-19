@@ -4,16 +4,20 @@ using UnityEngine;
 
 public class PlayerPl : MonoBehaviour
 {
-    [SerializeField]
-    private float speed = 2.0f;
-    [SerializeField]
-    private bool key_board_controll = false;
 
-    private Rigidbody2D body;
+    public Vector2 speed = new Vector2(30, 30);
 
-    void move(Vector2 coord) 
+
+    private Vector2 movement;
+    public Joystick joystick;
+    Rigidbody2D body;
+    void Update()
     {
-        body.AddForce((Vector3)coord * speed * Time.deltaTime);
+
+        float inputX = joystick.Horizontal;
+        float inputY = joystick.Vertical; 
+        movement = new Vector2(speed.x * inputX, speed.y * inputY);
+
     }
 
     public void dead()
@@ -27,12 +31,8 @@ public class PlayerPl : MonoBehaviour
         body.freezeRotation = true;
     }
 
-    public void Update()
-    {
-        if (key_board_controll)
-        {
-            move(new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")));
-        }
+    void FixedUpdate()
+    { 
+        body.velocity = movement;
     }
-
 }

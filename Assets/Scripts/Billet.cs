@@ -63,7 +63,7 @@ public class Billet : Movable
     void FixedUpdate()
     {
         base.FixedUpdate();
-        set_velocity();
+        //set_velocity();
     }
 
     void Update()
