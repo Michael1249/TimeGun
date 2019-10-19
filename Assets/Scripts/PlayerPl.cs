@@ -10,7 +10,7 @@ public class PlayerPl : MonoBehaviour
 
     private Vector2 movement;
     public Joystick joystick;
-
+    Rigidbody2D body;
     void Update()
     {
 
@@ -27,14 +27,12 @@ public class PlayerPl : MonoBehaviour
 
     void Start()
     {
-        GetComponent<Rigidbody2D>().freezeRotation = true;
-    }
-
-
+        body = GetComponent<Rigidbody2D>();
+        body.freezeRotation = true;
     }
 
     void FixedUpdate()
     { 
-        GetComponent<Rigidbody2D>().velocity = movement;
+        body.velocity = movement;
     }
 }
