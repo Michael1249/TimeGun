@@ -4,11 +4,20 @@ using UnityEngine;
 
 public class PlayerPl : MonoBehaviour
 {
-    public float speed = 2.0f;
+    public Vector2 speed = new Vector2(30, 30);
 
-    void move(Vector2 coord) 
+    private Vector2 movement;
+    public Joystick joystick;
+
+    void Update()
     {
-        transform.position += (Vector3)coord * speed * Time.deltaTime;
+        float inputX = joystick.Horizontal;
+        float inputY = joystick.Vertical; 
+        movement = new Vector2(speed.x * inputX, speed.y * inputY);
     }
 
+    void FixedUpdate()
+    { 
+        GetComponent<Rigidbody2D>().velocity = movement;
+    }
 }
