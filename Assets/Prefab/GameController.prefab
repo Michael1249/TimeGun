@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8598613479995965665}
   m_Layer: 0
   m_Name: GameController
-  m_TagString: Untagged
+  m_TagString: game_controller
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -43,4 +43,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3b746b748b77a345beaef2129b34bd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  secondsDefault: 3
+  defaultTime: 0

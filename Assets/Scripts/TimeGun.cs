@@ -12,6 +12,7 @@ public class TimeGun : MonoBehaviour
 
     private GameObject player;
     private Camera camera;
+    private GameController gameController;
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +23,11 @@ public class TimeGun : MonoBehaviour
     void Awake()
     {
         player = GameObject.FindWithTag("Player");
+        
+        gameController = GameObject.FindWithTag("game_controller").GetComponent<GameController>();
         camera = Camera.main;
+        
+        Debug.Log(gameController);
     }
 
     // Update is called once per frame
@@ -61,6 +66,8 @@ public class TimeGun : MonoBehaviour
                         {
                             movable.freeze();
                         }
+
+                        gameController.decreaseTime(shotPrice);
                     }  
                 }
             }
