@@ -11,6 +11,7 @@ TagManager:
   - tile
   - spawner
   - time_gun
+  - game_controller
   layers:
   - Default
   - TransparentFX

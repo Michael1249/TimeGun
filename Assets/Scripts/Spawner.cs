@@ -8,11 +8,12 @@ public class Spawner : Movable
     private float period = 1f;
 
     [SerializeField]
-    private Vector2 offset = new Vector2(0,0);
+    private Vector2 offset = new Vector2(0, 0);
 
     [SerializeField]
     private GameObject prefab;
 
+    [SerializeField]
     private float spawn_timer;
 
     void spawn()
@@ -24,7 +25,7 @@ public class Spawner : Movable
     void Start()
     {
         base.Start();
-        spawn_timer = period;
+    
     }
 
     void FixedUpdate()
@@ -35,7 +36,7 @@ public class Spawner : Movable
     // Update is called once per frame
     void Update()
     {
-        if (spawn_timer > 0)
+        if (spawn_timer >= 0)
         {
             spawn_timer -= Time.deltaTime * get_time_scale();
             if (spawn_timer <= 0)
