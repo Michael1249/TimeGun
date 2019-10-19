@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class Movable : MonoBehaviour
 {
-    private float time_scale;
-    private float target_time_scale;
-
-    private float timer = 0f;
-
+    [SerializeField]
+    private Gradient gradient;
+    [SerializeField]
+    private bool enable = true;
     [SerializeField]
     private bool locked = false;
     [SerializeField]
@@ -24,10 +23,36 @@ public class Movable : MonoBehaviour
     [SerializeField]
     private float linear_change_speed = 0.05f;
 
+    private float time_scale;
+    private float target_time_scale;
+    private float timer = 0f;
+
+    public void set_enable(bool value)
+    {
+        enable = value;
+    }
 
     void set_time_scale(float value)
     {
         target_time_scale = value;
+    }
+
+    float get_percentage()
+    {
+        bool freeze = time_scale < default_scale;
+        float target_scale = (freeze) ? freeze_scale : hot_scale;
+        float value = (time_scale - default_scale) / (target_scale - default_scale);
+
+        value = (freeze) ? (1 - value) / 2 : (value + 1) / 2;
+        return value;
+    }
+
+    void set_color()
+    { 
+    
+        SpriteRenderer renderer = GetComponent<SpriteRenderer>();
+
+        renderer.color = gradient.Evaluate(get_percentage());
     }
 
     void reset()
@@ -55,7 +80,15 @@ public class Movable : MonoBehaviour
 
     public float get_time_scale()
     {
-        return time_scale;
+        if (!enable)
+        {
+            return 0;
+        }
+        else
+        {
+            return time_scale;
+        }
+
     }
 
     // Start is called before the first frame FixedUpdate
@@ -76,12 +109,13 @@ public class Movable : MonoBehaviour
         }
         if (timer > 0)
         {
-            timer -= Time.fixedTime;
+            timer -= Time.fixedDeltaTime;
             if (timer <= 0)
             {
                 timer = 0;
                 reset();
             }
         }
+        set_color();
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class Guarder : Movable
 {
     [SerializeField]
-    public GameObject[] targets;
+    private GameObject[] targets;
 
     private int target_indx = 0;
 

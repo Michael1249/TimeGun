@@ -10,9 +10,35 @@ public class Billet : Movable
     [SerializeField]
     private Vector2 default_vector;
 
+    public void OnTriggerEnter2D(Collider2D other)
+    {
+        string tag = other.tag;
+
+        switch (tag)
+        {
+            case "box":
+                Destroy(other.gameObject);
+                break;
+            case "rotor":
+                Destroy(this.gameObject);
+                break;
+            case "platform":
+                Destroy(this.gameObject);
+                break;
+            case "bullet":
+                Destroy(this.gameObject);
+                break;
+            case "player":
+                break;
+            default:
+                break;
+        }
+    }
+
     void set_velocity()
     {
         body.velocity = body.velocity.normalized * get_time_scale();
+        //body.velocity -= body.velocity * (float)(body.velocity.magnitude - get_time_scale()) * 0.5f;
     }
 
     // Start is called before the first frame update
@@ -20,6 +46,7 @@ public class Billet : Movable
     {
         base.Start();
         body = GetComponent<Rigidbody2D>();
+        body.freezeRotation = true;
 
         if (body.velocity.magnitude == 0)
         {
@@ -32,10 +59,11 @@ public class Billet : Movable
     void FixedUpdate()
     {
         base.FixedUpdate();
+        set_velocity();
     }
 
     void Update()
     {
-        set_velocity();
+        
     }
 }
