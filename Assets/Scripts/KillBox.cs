@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class KillBox : MonoBehaviour
 {
+    PlayerPl player;
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -17,7 +18,8 @@ public class KillBox : MonoBehaviour
             case "bullet":
                 Destroy(other.gameObject);
                 break;
-            case "player":
+            case "Player":
+                player.dead();
                 break;
             default:
                 break;
@@ -28,7 +30,7 @@ public class KillBox : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        player = GameObject.FindWithTag("Player").GetComponent<PlayerPl>();
     }
 
     // Update is called once per frame
