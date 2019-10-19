@@ -16,6 +16,11 @@ public class PlayerPl : MonoBehaviour
         body.AddForce((Vector3)coord * speed * Time.deltaTime);
     }
 
+    public void dead()
+    {
+        Debug.Log("Dead");
+    }
+
     void Start()
     {
         body = GetComponent<Rigidbody2D>();

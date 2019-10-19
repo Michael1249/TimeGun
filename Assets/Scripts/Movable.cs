@@ -91,12 +91,6 @@ public class Movable : MonoBehaviour
 
     }
 
-    void OnMouseDown()
-    {
-        // this object was clicked - do something
-        Destroy(this.gameObject);
-    }
-
     // Start is called before the first frame FixedUpdate
     public void Start()
     {

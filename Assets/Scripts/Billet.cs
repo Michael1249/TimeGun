@@ -5,6 +5,8 @@ using UnityEngine;
 public class Billet : Movable
 {
 
+    PlayerPl player;
+
     private Rigidbody2D body;
 
     [SerializeField]
@@ -28,7 +30,8 @@ public class Billet : Movable
             case "bullet":
                 Destroy(this.gameObject);
                 break;
-            case "player":
+            case "Player":
+                player.dead();
                 break;
             default:
                 break;
@@ -45,6 +48,7 @@ public class Billet : Movable
     void Start()
     {
         base.Start();
+        player = GameObject.FindWithTag("Player").GetComponent<PlayerPl>();
         body = GetComponent<Rigidbody2D>();
         body.freezeRotation = true;
 
