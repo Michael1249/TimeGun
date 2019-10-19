@@ -27,9 +27,14 @@ public class Movable : MonoBehaviour
     private float target_time_scale;
     private float timer = 0f;
 
-    public void set_enable(bool value)
+    public void set_enable()
     {
-        enable = value;
+        enable = true;
+    }
+
+    public void set_disable()
+    {
+        enable = false;
     }
 
     void set_time_scale(float value)
