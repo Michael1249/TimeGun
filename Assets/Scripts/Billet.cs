@@ -10,6 +10,31 @@ public class Billet : Movable
     [SerializeField]
     private Vector2 default_vector;
 
+    public void OnTriggerEnter2D(Collider2D other)
+    {
+        string tag = other.tag;
+
+        switch (tag)
+        {
+            case "box":
+                Destroy(other.gameObject);
+                break;
+            case "rotor":
+                Destroy(this.gameObject);
+                break;
+            case "platform":
+                Destroy(this.gameObject);
+                break;
+            case "bullet":
+                Destroy(this.gameObject);
+                break;
+            case "player":
+                break;
+            default:
+                break;
+        }
+    }
+
     void set_velocity()
     {
         body.velocity = body.velocity.normalized * get_time_scale();
