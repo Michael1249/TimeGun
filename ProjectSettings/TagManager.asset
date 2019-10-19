@@ -10,6 +10,7 @@ TagManager:
   - rotor
   - tile
   - spawner
+  - time_gun
   layers:
   - Default
   - TransparentFX
