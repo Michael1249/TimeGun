@@ -4,16 +4,33 @@ using UnityEngine;
 
 public class PlayerPl : MonoBehaviour
 {
+
     public Vector2 speed = new Vector2(30, 30);
+
 
     private Vector2 movement;
     public Joystick joystick;
 
     void Update()
     {
+
         float inputX = joystick.Horizontal;
         float inputY = joystick.Vertical; 
         movement = new Vector2(speed.x * inputX, speed.y * inputY);
+
+    }
+
+    public void dead()
+    {
+        Debug.Log("Dead");
+    }
+
+    void Start()
+    {
+        GetComponent<Rigidbody2D>().freezeRotation = true;
+    }
+
+
     }
 
     void FixedUpdate()
