@@ -7,10 +7,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4119840954286910205, guid: f5e8032787500d548ab6002d9cc8cbd7,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: -3515835652789022588, guid: f5e8032787500d548ab6002d9cc8cbd7,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.55
+      objectReference: {fileID: 0}
     - target: {fileID: 3104724400988955765, guid: f5e8032787500d548ab6002d9cc8cbd7,
         type: 3}
       propertyPath: m_Name
-      value: Vertical Bullet
+      value: +yBullet
       objectReference: {fileID: 0}
     - target: {fileID: 3104724400988955760, guid: f5e8032787500d548ab6002d9cc8cbd7,
         type: 3}
@@ -70,12 +80,12 @@ PrefabInstance:
     - target: {fileID: 3104724400988955760, guid: f5e8032787500d548ab6002d9cc8cbd7,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.5
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 3104724400988955760, guid: f5e8032787500d548ab6002d9cc8cbd7,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.5
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 559938605485511434, guid: f5e8032787500d548ab6002d9cc8cbd7,
         type: 3}
@@ -86,16 +96,6 @@ PrefabInstance:
         type: 3}
       propertyPath: default_vector.x
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -3515835652789022588, guid: f5e8032787500d548ab6002d9cc8cbd7,
-        type: 3}
-      propertyPath: m_Radius
-      value: 0.55
-      objectReference: {fileID: 0}
-    - target: {fileID: 4119840954286910205, guid: f5e8032787500d548ab6002d9cc8cbd7,
-        type: 3}
-      propertyPath: m_Radius
-      value: 0.45
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f5e8032787500d548ab6002d9cc8cbd7, type: 3}

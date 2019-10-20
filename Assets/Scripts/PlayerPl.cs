@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerPl : MonoBehaviour
 {
@@ -22,7 +23,9 @@ public class PlayerPl : MonoBehaviour
 
     public void dead()
     {
+        FindObjectOfType<SoundsManager>().Play("Death");
         Debug.Log("Dead");
+        // SceneManager.LoadScene("mainMenu"); - test for Sounds. Can be deleted
     }
 
     void Start()

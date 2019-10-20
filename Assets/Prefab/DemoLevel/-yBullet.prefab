@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 7090429102870023320, guid: 75be0ed6b9c985f42b98f2d237f1ac19,
         type: 3}
       propertyPath: m_Name
-      value: Vertical Bullet Variant
+      value: -yBullet
       objectReference: {fileID: 0}
     - target: {fileID: 7090429102870023325, guid: 75be0ed6b9c985f42b98f2d237f1ac19,
         type: 3}
@@ -70,12 +70,12 @@ PrefabInstance:
     - target: {fileID: 7090429102870023325, guid: 75be0ed6b9c985f42b98f2d237f1ac19,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.5
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 7090429102870023325, guid: 75be0ed6b9c985f42b98f2d237f1ac19,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.5
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 5671506266434452455, guid: 75be0ed6b9c985f42b98f2d237f1ac19,
         type: 3}

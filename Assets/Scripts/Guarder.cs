@@ -28,7 +28,7 @@ public class Guarder : Movable
     {
         base.Start();
         GetComponent<Rigidbody2D>().freezeRotation = true;
-        transform.position = get_current_target().transform.position;
+        //transform.position = get_current_target().transform.position;
         next();
     }
 
