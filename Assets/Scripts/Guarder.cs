@@ -9,6 +9,8 @@ public class Guarder : Movable
 
     private int target_indx = 0;
 
+    private Rigidbody2D body;
+
     void next()
     {
         target_indx++;
@@ -27,7 +29,8 @@ public class Guarder : Movable
     void Start()
     {
         base.Start();
-        GetComponent<Rigidbody2D>().freezeRotation = true;
+        body = GetComponent<Rigidbody2D>();
+        body.freezeRotation = true;
         //transform.position = get_current_target().transform.position;
         next();
     }
@@ -48,8 +51,10 @@ public class Guarder : Movable
         if (delta_pos.magnitude < delta_move.magnitude * 1.1)
         {
             next();
+            body.velocity = new Vector3(0, 0, 0);
         }
-
-        transform.position += delta_move;
+        Debug.Log(delta_pos);
+        body.AddForce(delta_move / Time.fixedDeltaTime * 100);
+        //transform.position += delta_move;
     }
 }

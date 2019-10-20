@@ -16,14 +16,15 @@ public class Trigger : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D other)
     {
-
         string tag = other.gameObject.tag;
         Transform other_transform = other.gameObject.transform;
 
-        if (tag == "Player" || tag == "Box")
+        if (tag == "Player" || tag == "box")
         {
-           if ((other_transform.position - transform.position).magnitude < treshold)
-           {
+            Vector3 delta = other_transform.position - transform.position;
+            delta.z = 0;
+            if (delta.magnitude < treshold)
+            {
                 if (state == false)
                 {
                     state = true;
@@ -36,11 +37,10 @@ public class Trigger : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D other)
     {
-
         string tag = other.gameObject.tag;
         Transform other_transform = other.gameObject.transform;
 
-        if (tag == "Player" || tag == "Box")
+        if (tag == "Player" || tag == "box")
         {
             if (state == true)
             {
