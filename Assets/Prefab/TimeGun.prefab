@@ -43,3 +43,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 429347bbe86c11641b7ca79fae9572d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  allowedDistance: 10
+  isIncreasingMode: 1
+  shotPrice: 0

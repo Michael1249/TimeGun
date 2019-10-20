@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 3104724400988955765, guid: f5e8032787500d548ab6002d9cc8cbd7,
         type: 3}
       propertyPath: m_Name
-      value: Bullet Variant
+      value: -xBullet
       objectReference: {fileID: 0}
     - target: {fileID: 3104724400988955760, guid: f5e8032787500d548ab6002d9cc8cbd7,
         type: 3}
@@ -66,6 +66,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3104724400988955760, guid: f5e8032787500d548ab6002d9cc8cbd7,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 3104724400988955760, guid: f5e8032787500d548ab6002d9cc8cbd7,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 559938605485511434, guid: f5e8032787500d548ab6002d9cc8cbd7,
         type: 3}
