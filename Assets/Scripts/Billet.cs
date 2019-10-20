@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Billet : Movable
+public class Billet : MonoBehaviour
 {
 
     PlayerPl player;
@@ -11,6 +11,9 @@ public class Billet : Movable
 
     [SerializeField]
     private Vector2 default_vector;
+
+    [SerializeField]
+    private float speed = 3;
 
     public void OnTriggerEnter2D(Collider2D other)
     {
@@ -40,7 +43,7 @@ public class Billet : Movable
 
     void set_velocity()
     {
-        body.velocity = body.velocity.normalized * get_time_scale();
+        body.velocity = body.velocity.normalized * speed;// * get_time_scale();
         //body.velocity -= body.velocity * (float)(body.velocity.magnitude - get_time_scale()) * 0.5f;
     }
 
@@ -48,7 +51,7 @@ public class Billet : Movable
     void Start()
     {
         //FindObjectOfType<SoundsManager>().Play("Saw");
-        base.Start();
+        //base.Start();
         player = GameObject.FindWithTag("Player").GetComponent<PlayerPl>();
         body = GetComponent<Rigidbody2D>();
         body.freezeRotation = true;
@@ -63,7 +66,7 @@ public class Billet : Movable
     // Update is called once per frame
     void FixedUpdate()
     {
-        base.FixedUpdate();
+        //base.FixedUpdate();
         //set_velocity();
     }
 
