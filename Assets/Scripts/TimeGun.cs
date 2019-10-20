@@ -66,6 +66,7 @@ public class TimeGun : MonoBehaviour
 
                     if (movable != null)
                     {
+                        FindObjectOfType<SoundsManager>().Play("Attack");
                         Debug.Log("Luck!");
 
                         if (isIncreasingMode)
