@@ -47,6 +47,7 @@ public class Billet : Movable
     // Start is called before the first frame update
     void Start()
     {
+        //FindObjectOfType<SoundsManager>().Play("Saw");
         base.Start();
         player = GameObject.FindWithTag("Player").GetComponent<PlayerPl>();
         body = GetComponent<Rigidbody2D>();

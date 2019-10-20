@@ -11,6 +11,7 @@ public class Spike : MonoBehaviour
         if (other.tag == "Player")
         {
             player = GameObject.FindWithTag("Player").GetComponent<PlayerPl>();
+            FindObjectOfType<SoundsManager>().Play("Trap");
             player.dead();
         }
     }
