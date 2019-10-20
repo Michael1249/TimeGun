@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7285911656208139520}
   - component: {fileID: 4450179972768107585}
   - component: {fileID: -4094555025695069872}
-  - component: {fileID: 2334332869761894712}
+  - component: {fileID: 5633041313450199598}
   m_Layer: 0
   m_Name: MainHero
   m_TagString: Player
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 3837747837718465970}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.517, y: 0.503, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.9, y: 2.9, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -72,13 +72,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 9138555137054584332, guid: ec54710262524f54c8400604440c2230,
-    type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 9f0b11643ea238f46b8ebf787ee69f36, type: 3}
+  m_Color: {r: 1, g: 0, b: 0.92892265, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.2, y: 0.2}
+  m_Size: {x: 0.35, y: 0.34}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -119,8 +118,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: {x: 30, y: 30}
   joystick: {fileID: 0}
---- !u!70 &2334332869761894712
-CapsuleCollider2D:
+--- !u!58 &5633041313450199598
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -133,5 +132,5 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.5, y: 1}
-  m_Direction: 0
+  serializedVersion: 2
+  m_Radius: 0.11
