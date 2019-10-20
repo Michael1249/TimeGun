@@ -96,7 +96,11 @@ public class Movable : MonoBehaviour
 
     }
 
-    // Start is called before the first frame FixedUpdate
+    void OnMouseDown()
+    {
+
+    }
+
     public void Start()
     {
         time_scale = default_scale;
@@ -112,6 +116,11 @@ public class Movable : MonoBehaviour
             time_scale += delta * change_speed;
             time_scale += delta > 0 ? linear_change_speed : -linear_change_speed;
         }
+        else
+        {
+            time_scale = target_time_scale;
+        }
+
         if (timer > 0)
         {
             timer -= Time.fixedDeltaTime;
