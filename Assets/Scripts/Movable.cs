@@ -96,7 +96,11 @@ public class Movable : MonoBehaviour
 
     }
 
-    // Start is called before the first frame FixedUpdate
+    void OnMouseDown()
+    {
+
+    }
+
     public void Start()
     {
         time_scale = default_scale;
