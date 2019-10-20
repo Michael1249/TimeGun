@@ -27,14 +27,16 @@ public class Movable : MonoBehaviour
     private float target_time_scale;
     private float timer = 0f;
 
-    public void set_enable()
+    public void set_enabled()
     {
         enable = true;
+        target_time_scale = default_scale;
     }
 
-    public void set_disable()
+    public void set_disabled()
     {
         enable = false;
+        target_time_scale = 0;
     }
 
     void set_time_scale(float value)
@@ -44,6 +46,10 @@ public class Movable : MonoBehaviour
 
     float get_percentage()
     {
+        if (!enable)
+        {
+            return 0.5f;
+        }
         bool freeze = time_scale < default_scale;
         float target_scale = (freeze) ? freeze_scale : hot_scale;
         float value = (time_scale - default_scale) / (target_scale - default_scale);
@@ -67,7 +73,7 @@ public class Movable : MonoBehaviour
 
     public void freeze()
     {
-        if (!locked)
+        if (!locked && enable)
         {
             target_time_scale = freeze_scale;
             timer = time_to_reset;
@@ -76,7 +82,7 @@ public class Movable : MonoBehaviour
 
     public void hot()
     {
-        if (!locked)
+        if (!locked && enable)
         {
             target_time_scale = hot_scale;
             timer = time_to_reset;
@@ -85,15 +91,7 @@ public class Movable : MonoBehaviour
 
     public float get_time_scale()
     {
-        if (!enable)
-        {
-            return 0;
-        }
-        else
-        {
-            return time_scale;
-        }
-
+        return time_scale;
     }
 
     void OnMouseDown()
@@ -103,13 +101,26 @@ public class Movable : MonoBehaviour
 
     public void Start()
     {
-        time_scale = default_scale;
-        target_time_scale = default_scale;
+        if(enable)
+        {
+            target_time_scale = default_scale;
+            time_scale = default_scale;
+        }
+        else
+        {
+            target_time_scale = 0;
+            time_scale = 0;
+        }
+
     }
 
     // FixedUpdate is called once per frame
     public void FixedUpdate()
     {
+        if (!enable)
+        {
+            target_time_scale = 0;
+        }
         float delta = target_time_scale - time_scale;
         if (Mathf.Abs(delta) > linear_change_speed * 2)
         {
